@@ -755,9 +755,9 @@ Request.prototype.request = function() {
   ) {
     options.rejectUnauthorized = false;
   }
-  
-  if(this._insecureSSL) {
-    options.rejectUnauthorized = false
+
+  if (this._insecureSSL) {
+    options.rejectUnauthorized = false;
   }
 
   // initiate request
