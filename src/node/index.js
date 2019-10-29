@@ -755,6 +755,10 @@ Request.prototype.request = function() {
   ) {
     options.rejectUnauthorized = false;
   }
+  
+  if(this._insecureSSL) {
+    options.rejectUnauthorized = false
+  }
 
   // initiate request
   const mod = this._enableHttp2
@@ -1265,6 +1269,11 @@ Request.prototype.connect = function(connectOverride) {
 
 Request.prototype.trustLocalhost = function(toggle) {
   this._trustLocalhost = toggle === undefined ? true : toggle;
+  return this;
+};
+
+Request.prototype.insecureSSL = function(toggle) {
+  this._insecureSSL = toggle === undefined ? true : toggle;
   return this;
 };
 
